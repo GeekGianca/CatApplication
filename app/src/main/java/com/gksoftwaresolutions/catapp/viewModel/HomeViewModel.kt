@@ -1,4 +1,4 @@
-package com.gksoftwaresolutions.catapp.view.ui.home
+package com.gksoftwaresolutions.catapp.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
