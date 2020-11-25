@@ -1,6 +1,6 @@
 package com.gksoftwaresolutions.catapp.model
 
-data class BreedListItem(
+data class BreedItem(
     val adaptability: Int,
     val affection_level: Int,
     val alt_names: String,

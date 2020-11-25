@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.gksoftwaresolutions.catapp.R
+import com.gksoftwaresolutions.catapp.viewModel.HomeViewModel
 
 class HomeFragment : Fragment() {
 
