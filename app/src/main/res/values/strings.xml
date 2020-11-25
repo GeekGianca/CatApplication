@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CatApp</string>
+    <!--Bottom Navigation Titles-->
+    <string name="title_images">Images</string>
+    <string name="title_breeds">Breeds</string>
+    <string name="title_votes">Votes</string>
+    <!---->
+</resources>

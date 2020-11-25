@@ -1,0 +1,45 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.CatApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
+        <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <!--Animations from Splash-->
+        <item name="android:windowAnimationStyle">
+            @style/WindowAnimations</item>
+    </style>
+
+    <style name="WindowAnimations">
+        <item name="android:activityOpenEnterAnimation">
+            @anim/enter_animation</item>
+        <item name="android:activityOpenExitAnimation">
+            @anim/exit_animation</item>
+        <item name="android:activityCloseEnterAnimation">
+            @anim/enter_animation</item>
+        <item name="android:activityCloseExitAnimation">
+            @anim/exit_animation</item>
+    </style>
+</resources>

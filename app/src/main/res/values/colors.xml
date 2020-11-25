@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Primary Color Template-->
+    <color name="colorPrimary">#0091ea</color>
+    <color name="colorPrimaryVariant">#0064b7</color>
+    <color name="colorOnPrimary">#64c1ff</color>
+    <!--Secondary Color Template-->
+    <color name="colorSecondary">#304ffe</color>
+    <color name="colorSecondaryVariant">#0026ca</color>
+    <color name="colorOnSecondary">#7a7cff</color>
+    <!--Color Palette For Text And More-->
+    <color name="colorItemDisable">#878787</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
