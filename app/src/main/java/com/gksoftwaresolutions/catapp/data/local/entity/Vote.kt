@@ -14,5 +14,7 @@ class Vote(
     @ColumnInfo(name = "created_at")
     val createdAt: String,
     @ColumnInfo(name = "image")
-    val image: String
+    val image: String,
+    @ColumnInfo(name = "value")
+    val value: Int
 )

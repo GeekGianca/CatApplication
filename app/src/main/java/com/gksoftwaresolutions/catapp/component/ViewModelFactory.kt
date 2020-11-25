@@ -4,9 +4,12 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.gksoftwaresolutions.catapp.data.local.LocalDatabase
-import com.gksoftwaresolutions.catapp.data.local.dataSource.VoteDataSource
+import com.gksoftwaresolutions.catapp.data.local.dataSource.VoteLocalDataSource
+import com.gksoftwaresolutions.catapp.data.remote.dataSource.VoteDataSource
 import com.gksoftwaresolutions.catapp.data.remote.repository.BreedRepository
+import com.gksoftwaresolutions.catapp.data.remote.repository.ImageRepository
 import com.gksoftwaresolutions.catapp.viewModel.BreedViewModel
+import com.gksoftwaresolutions.catapp.viewModel.DetailViewModel
 import com.gksoftwaresolutions.catapp.viewModel.HomeViewModel
 import com.gksoftwaresolutions.catapp.viewModel.VoteViewModel
 import dagger.Module
@@ -23,10 +26,16 @@ class ViewModelFactory(private val context: Context, private val local: LocalDat
     fun getLocalDatabase(): LocalDatabase = local
 
     @Provides
-    fun getVoteDataSource(): VoteDataSource = VoteDataSource(local.voteDao())
+    fun getVoteDataSource(): VoteLocalDataSource = VoteLocalDataSource(local.voteDao())
 
     @Provides
     fun getBreedRepository(): BreedRepository = BreedRepository()
+
+    @Provides
+    fun getImageRepository(): ImageRepository = ImageRepository()
+
+    @Provides
+    fun getVoteRemoteDataSource(): VoteDataSource = VoteDataSource()
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -35,10 +44,17 @@ class ViewModelFactory(private val context: Context, private val local: LocalDat
                 BreedViewModel(getBreedRepository()) as T
             }
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel() as T
+                HomeViewModel(
+                    getImageRepository(),
+                    getVoteDataSource(),
+                    getVoteRemoteDataSource()
+                ) as T
             }
             modelClass.isAssignableFrom(VoteViewModel::class.java) -> {
                 VoteViewModel(getVoteDataSource()) as T
+            }
+            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
+                DetailViewModel(getBreedRepository()) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class")
         }

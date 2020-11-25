@@ -1,25 +1,23 @@
 package com.gksoftwaresolutions.catapp.data.remote
 
-import com.gksoftwaresolutions.catapp.model.BreedList
-import com.gksoftwaresolutions.catapp.model.ImageList
-import com.gksoftwaresolutions.catapp.model.MakeVote
-import com.gksoftwaresolutions.catapp.model.ResultVote
+import com.gksoftwaresolutions.catapp.model.*
 import io.reactivex.Flowable
 import io.reactivex.Observable
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.QueryMap
+import io.reactivex.Single
+import retrofit2.http.*
 
 interface CatClient {
 
-    @GET("/images/search")
+    @GET("/v1/images/search")
     fun imagesList(@QueryMap params: Map<String, String>): Observable<ImageList>
 
-    @GET("/breeds")
+    @GET("/v1/breeds")
     fun breedsList(@QueryMap params: Map<String, String>): Observable<BreedList>
 
-    @POST("/votes")
+    @POST("/v1/votes")
     fun createVote(@Body vote: MakeVote): Flowable<ResultVote>
+
+    @GET("/v1/breeds/search")
+    fun searchBreed(@Query("q") breed: String) : Single<BreedItem>
 
 }
