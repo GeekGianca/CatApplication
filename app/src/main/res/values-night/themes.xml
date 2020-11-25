@@ -29,17 +29,79 @@
         <item name="windowNoTitle">true</item>
         <!--Animations from Splash-->
         <item name="android:windowAnimationStyle">
-            @style/WindowAnimations</item>
+            @style/WindowAnimations
+        </item>
     </style>
 
     <style name="WindowAnimations">
         <item name="android:activityOpenEnterAnimation">
-            @anim/enter_animation</item>
+            @anim/enter_animation
+        </item>
         <item name="android:activityOpenExitAnimation">
-            @anim/exit_animation</item>
+            @anim/exit_animation
+        </item>
         <item name="android:activityCloseEnterAnimation">
-            @anim/enter_animation</item>
+            @anim/enter_animation
+        </item>
         <item name="android:activityCloseExitAnimation">
-            @anim/exit_animation</item>
+            @anim/exit_animation
+        </item>
+    </style>
+
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!--Material Alert Dialog-->
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorSurface">@color/white</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/BodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="android:textColorAlertDialogListItem">@color/primaryText</item>
+        <item name="android:textColor">@color/primaryText</item>
+    </style>
+
+    <style name="TitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/abeezee</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="BodyTextStyle" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/abeezee</item>
+        <item name="textColorAlertDialogListItem">@color/primaryText</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/abeezee</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="rippleColor">@color/white</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/abeezee</item>
+        <item name="android:textColor">@color/redLow</item>
+        <item name="rippleColor">@color/white</item>
+    </style>
+
+    <!--ProgressDialog-->
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/black</item>
+        <item name="fontFamily">@font/abeezee</item>
+        <item name="android:textColorPrimary">@color/primaryText</item>
+        <item name="android:background">@color/white</item>
     </style>
 </resources>

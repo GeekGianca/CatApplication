@@ -2,25 +2,19 @@ package com.gksoftwaresolutions.catapp.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.gksoftwaresolutions.catapp.data.local.dataSource.VoteDataSource
+import com.gksoftwaresolutions.catapp.data.local.dataSource.VoteLocalDataSource
 import com.gksoftwaresolutions.catapp.data.local.entity.Vote
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class VoteViewModel @Inject constructor(private val dsVote: VoteDataSource) : ViewModel() {
+class VoteViewModel @Inject constructor(private val dsVoteLocal: VoteLocalDataSource) : ViewModel() {
 
-    val observableListVotes: LiveData<List<Vote>> = dsVote.observableVote()
+    val observableListVotes: LiveData<List<Vote>> = dsVoteLocal.observableVote()
 
-    val observableError: LiveData<String> = dsVote.observableError()
+    val observableError: LiveData<String> = dsVoteLocal.observableError()
 
-    val observableSuccess: LiveData<String> = dsVote.observableSuccess()
-
-    fun insertVote(vote: Vote) {
-        dsVote.saveVote(vote)
-    }
+    val observableSuccess: LiveData<String> = dsVoteLocal.observableSuccess()
 
     fun allVotes() {
-        dsVote.allVotes()
+        dsVoteLocal.allVotes()
     }
 }

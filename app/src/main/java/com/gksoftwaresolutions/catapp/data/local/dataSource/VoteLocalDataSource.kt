@@ -14,7 +14,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class VoteDataSource @Inject constructor(private val voteDao: VoteDao) {
+class VoteLocalDataSource @Inject constructor(private val voteDao: VoteDao) {
     companion object {
         private const val TAG = "VoteDataSource"
     }
@@ -57,13 +57,15 @@ class VoteDataSource @Inject constructor(private val voteDao: VoteDao) {
             }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    Log.d(TAG, "Subscribe Object to Insert Note")
+                    Log.d(TAG, "Subscribe Object to Insert Vote")
                 }, { throwable: Throwable ->
                     Log.e(TAG, throwable.message, throwable)
                     observerError.value = "Failed to save Vote: ${throwable.message}"
-                }) {
+                }, {
+                    Log.d(TAG, "Vote make")
                     observerSuccess.value = "Vote register Successfully"
                 })
+        )
     }
 
 }

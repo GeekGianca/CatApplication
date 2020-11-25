@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.gksoftwaresolutions.catapp.view.ui.home.HomeFragment"
+        android:name="com.gksoftwaresolutions.catapp.view.home.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_breed"
-        android:name="com.gksoftwaresolutions.catapp.view.ui.categories.BreedFragment"
+        android:name="com.gksoftwaresolutions.catapp.view.categories.BreedFragment"
         tools:layout="@layout/fragment_breed" />
 
     <fragment
         android:id="@+id/navigation_vote"
-        android:name="com.gksoftwaresolutions.catapp.view.ui.votes.VoteFragment"
+        android:name="com.gksoftwaresolutions.catapp.view.votes.VoteFragment"
         tools:layout="@layout/fragment_vote" />
 
 </navigation>

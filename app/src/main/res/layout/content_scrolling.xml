@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".view.detailBreed.DetailActivity"
+    tools:showIn="@layout/activity_detail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:textColor="@color/primaryText"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/abeezee"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:text="Name: "
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_round_pets" />
+
+        <TextView
+            android:textColor="@color/primaryText"
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/abeezee"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:text="Description: "
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_wikipedia" />
+
+        <TextView
+            android:textColor="@color/primaryText"
+            android:id="@+id/origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/abeezee"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:text="Origin: "
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_round_location_on" />
+
+        <TextView
+            android:textColor="@color/primaryText"
+            android:id="@+id/temperament"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/abeezee"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:text="Temperament: "
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_baseline_warning" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
