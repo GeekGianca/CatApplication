@@ -73,7 +73,6 @@ class HomeFragment : Fragment(), ImageAdapter.IMakeVoteListener {
                 }
                 networkState === NetworkState.ERROR -> {
                     binding.loading.visibility = View.GONE
-                    binding.emptyContent.visibility = View.VISIBLE
                 }
             }
         })
