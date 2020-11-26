@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.gksoftwaresolutions.catapp.data.remote.repository.BreedRepository
 import com.gksoftwaresolutions.catapp.model.BreedItem
+import com.gksoftwaresolutions.catapp.model.BreedList
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
@@ -15,8 +16,8 @@ class DetailViewModel @Inject constructor(private val breedRepo: BreedRepository
         return breedRepo.breedError()
     }
 
-    fun observableBreedItem(): LiveData<BreedItem> {
-        return breedRepo.observableBreed();
+    fun observableBreedItem(): LiveData<BreedList> {
+        return breedRepo.observableBreed()
     }
 
     fun findBreed(breedName: String) {

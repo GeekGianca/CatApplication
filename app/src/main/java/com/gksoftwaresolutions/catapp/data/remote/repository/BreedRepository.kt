@@ -12,6 +12,7 @@ import com.gksoftwaresolutions.catapp.data.remote.CatClient
 import com.gksoftwaresolutions.catapp.data.remote.dataSource.BreedDataSource
 import com.gksoftwaresolutions.catapp.data.remote.dataSource.BreedDataSourceFactory
 import com.gksoftwaresolutions.catapp.model.BreedItem
+import com.gksoftwaresolutions.catapp.model.BreedList
 import com.gksoftwaresolutions.catapp.util.Common
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -27,9 +28,9 @@ class BreedRepository {
     private lateinit var clientDataSourceFactory: BreedDataSourceFactory
     private val error = MutableLiveData<String>()
 
-    private val breedMutable = MutableLiveData<BreedItem>()
+    private val breedMutable = MutableLiveData<BreedList>()
 
-    fun observableBreed(): LiveData<BreedItem> {
+    fun observableBreed(): LiveData<BreedList> {
         return breedMutable
     }
 
@@ -48,7 +49,8 @@ class BreedRepository {
         return breedList
     }
 
-    fun fetchBreed(disposable: CompositeDisposable, breed: String): LiveData<BreedItem> {
+    fun fetchBreed(disposable: CompositeDisposable, breed: String): LiveData<BreedList> {
+        client = SustainableService.createService(CatClient::class.java)
         disposable.add(
             client.searchBreed(breed)
                 .subscribeOn(Schedulers.io())

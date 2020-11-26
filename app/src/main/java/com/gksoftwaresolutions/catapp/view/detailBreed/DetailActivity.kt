@@ -1,22 +1,24 @@
 package com.gksoftwaresolutions.catapp.view.detailBreed
 
-import android.content.DialogInterface
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
-import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabsIntent
 import com.bumptech.glide.Glide
 import com.gksoftwaresolutions.catapp.CatApplication
 import com.gksoftwaresolutions.catapp.R
 import com.gksoftwaresolutions.catapp.databinding.ActivityDetailBinding
+import com.gksoftwaresolutions.catapp.model.BreedItem
 import com.gksoftwaresolutions.catapp.viewModel.DetailViewModel
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import javax.inject.Inject
 
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var itemBreed: BreedItem
 
     @Inject
     lateinit var mViewModel: DetailViewModel
@@ -29,10 +31,12 @@ class DetailActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).title = title
         mViewModel.observableBreedItem().observe(this, {
-            binding.layoutContent.name.text = it.name
-            binding.layoutContent.description.text = it.description
-            binding.layoutContent.origin.text = it.origin
-            binding.layoutContent.temperament.text = it.temperament
+            val item = it[0]
+            itemBreed = item
+            binding.layoutContent.name.text = item.name
+            binding.layoutContent.description.text = item.description
+            binding.layoutContent.origin.text = item.origin
+            binding.layoutContent.temperament.text = item.temperament
             Glide.with(this)
                 .load("https://mycatdaily.files.wordpress.com/2019/05/what-is-a-group-of-cats-called-ao-long.jpg")
                 .centerCrop()
@@ -40,7 +44,13 @@ class DetailActivity : AppCompatActivity() {
         })
 
         binding.fab.setOnClickListener {
-
+            val builder = CustomTabsIntent.Builder()
+            builder.setStartAnimations(this, android.R.anim.fade_in, android.R.anim.fade_out);
+            builder.setExitAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            val colorInt: Int = Color.parseColor("#0091ea")
+            builder.setToolbarColor(colorInt)
+            val customTabsIntent = builder.build()
+            customTabsIntent.launchUrl(this, Uri.parse(itemBreed.wikipedia_url))
         }
 
         mViewModel.observableErrorFind().observe(this, {

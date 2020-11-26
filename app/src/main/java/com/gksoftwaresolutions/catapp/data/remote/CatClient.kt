@@ -18,6 +18,6 @@ interface CatClient {
     fun createVote(@Body vote: MakeVote): Flowable<ResultVote>
 
     @GET("/v1/breeds/search")
-    fun searchBreed(@Query("q") breed: String) : Single<BreedItem>
+    fun searchBreed(@Query("q") breed: String) : Single<BreedList>
 
 }
