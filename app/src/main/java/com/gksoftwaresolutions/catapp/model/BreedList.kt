@@ -1,3 +1,3 @@
 package com.gksoftwaresolutions.catapp.model
 
-class BreedList : ArrayList<BreedListItem>()
+class BreedList : ArrayList<BreedItem>()

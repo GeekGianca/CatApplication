@@ -1,6 +1,8 @@
-package com.gksoftwaresolutions.catapp.component;
+package com.gksoftwaresolutions.catapp.data;
 
 import android.text.TextUtils;
+
+import com.gksoftwaresolutions.catapp.component.AuthenticationInterceptor;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
