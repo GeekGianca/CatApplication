@@ -104,4 +104,8 @@
         <item name="android:textColorPrimary">@color/primaryText</item>
         <item name="android:background">@color/white</item>
     </style>
+
+    <style name="Theme.CatApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.CatApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
